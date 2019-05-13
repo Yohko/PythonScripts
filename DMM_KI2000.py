@@ -19,10 +19,6 @@ strusage = 'Usage:\r\n	-p	Serial port, e.g. COM11\r\n	-f	Filename for saving dat
 
 try:
   opts, args = getopt.getopt(sys.argv[1:], 'f:p:s:',['file=', 'port=', 'sense='])
-  if not opts:
-    print('error')
-    print(strusage)
-    sys.exit(2)
 except getopt.GetoptError as err:
   print('error')
   print(strusage)
@@ -59,7 +55,7 @@ else:
 	os.system('clear') # for unix users
 
 print('Reading data from \x1b[1;31;40mKeithley 2000 Multimeter\x1b[0m at',serialport)
-print('Saving data to:\x1b[1;32;40m',os.getcwd()+savefile,'\x1b[0m')
+print('Saving data to:\x1b[1;32;40m',os.getcwd(),'\\',savefile,'\x1b[0m')
 print('Exit with Ctrl+C!\r\n')
 
 # configure the serial connections
